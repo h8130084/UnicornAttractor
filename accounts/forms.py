@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
+# Log in section
 class UserLoginForm(forms.Form):
     """Form to log users in"""
 

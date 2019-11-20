@@ -2,3 +2,4 @@
 *.pyc
 .~c9
 n__pycache__/
+env.py
