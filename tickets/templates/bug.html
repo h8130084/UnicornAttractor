@@ -5,6 +5,18 @@
 
 {% block content %}
 
+<div class="row row-flex"></div>
+{% for bug in bugs %}
 
-<button href="{% url 'addBug' %}">Button</button>
+<div class="col-xs-12">
+    <div class="panel-body">
+        <!--<div class="bug"></div>-->
+        <h2>{{ product.name }}</h2>
+        <p class="bug-description">{{ description }}</p>
+
+    </div>
+    {% endfor %}
+</div>
+<a href="{% url 'addBug' %}"><button>Button</button></a>
 {% endblock %}
+

@@ -4,6 +4,24 @@
 
 {% block content %}
 
+<form method='POST'>
+        {% csrf_token %}
+        <div>
+            {{ add_bug_form.name.errors }}
+            {{ add_bug_form.name.label_tag }}
+            {{ add_bug_form.name }}
+        </div>
+        <div>
+            {{ add_bug_form.description.errors }}
+            {{ add_bug_form.description.label_tag }}
+            {{ add_bug_form.description }}
+        </div>
+        <div>
+            {{ add_bug_form.bug_or_feature.errors }}
+            {{ add_bug_form.bug_or_feature.label_tag }}
+            {{ add_bug_form.bug_or_feature }}
+        </div>
+        <button type="submit" class="btn btn-success">Create!</button>
+</form>
 
-<button class="btn btn-success">Button</button>
 {% endblock %}

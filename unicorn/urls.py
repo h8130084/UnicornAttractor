@@ -14,9 +14,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views import static
 from accounts.views import index
 from accounts import urls as accounts_urls
 from tickets import urls as tickets_urls
+from tickets.views import all_bugs
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
