@@ -18,7 +18,7 @@ from django.views import static
 from accounts.views import index
 from accounts import urls as accounts_urls
 from tickets import urls as tickets_urls
-from tickets.views import all_bugs
+
 
 
 urlpatterns = [

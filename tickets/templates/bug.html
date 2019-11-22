@@ -1,22 +1,19 @@
-{% extends 'base.html' %}
-{% load bootstrap_tags %}
-{% block page_title %}Bugs and Features Page{% endblock %}
-{% block page_heading %}Bugs and Features{% endblock %}
+{% extends 'base.html' %} 
+{% load bootstrap_tags %} 
+{% block page_title %}Bugs and Features Page{% endblock %} 
+{% block page_heading %}Bugs and Features{% endblock %} 
 
-{% block content %}
+{% block content %} 
 
-<div class="row row-flex"></div>
 {% for bug in bugs %}
 
-<div class="col-xs-12">
-    <div class="panel-body">
-        <!--<div class="bug"></div>-->
-        <h2>{{ product.name }}</h2>
-        <p class="bug-description">{{ description }}</p>
+<a href="{% url 'bugDetails' pk=bug.id %}">
+    <div class=""> {{ bug.name }} </div>
+    <p class="bug-description">{{ bug.description }}</p>
+</a>
 
-    </div>
-    {% endfor %}
-</div>
-<a href="{% url 'addBug' %}"><button>Button</button></a>
+{% endfor %}
+
+<a href="{% url 'addBug' %}"><button>Button</button></a> 
+
 {% endblock %}
-

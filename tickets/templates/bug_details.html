@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load bootstrap_tags %} 
+{% block page_title %}{{ bug.name }} Details{% endblock %} 
+{% block page_heading %}{{ bug.name }}{% endblock %} 
+
+{% block content %} 
+
+<p>{{ bug.time_stamp }}</p>
+
+
+
+<form method='POST'>
+        {% csrf_token %}
+        <div>
+            {{ comment_form.name.errors }}
+            {{ comment_form.name.label_tag }}
+            {{ comment_form.name }}
+        </div>
+        <button type="submit" class="btn btn-success">Comment</button>
+</form>
+
+{% endblock %}

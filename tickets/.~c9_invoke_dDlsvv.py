@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib import auth
-from django.utils import timezone
 
 # Create your models here.
 class Bug(models.Model):
@@ -25,15 +24,14 @@ class Bug(models.Model):
     time_stamp = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=200, null=False, default='to do', choices=STATUS)
     
-    def __str__(self): 
+    def __str__(self):
         return self.name
     
-class Comment(models.Model):
+class Comments(models.Model):
     
     userID = models.ForeignKey('auth.User', null=False, on_delete=models.SET_DEFAULT, default=1)
-    bugID = models.ForeignKey('Bug', on_delete=models.CASCADE, default=1)
+    
     body = models.TextField()
-    time_stamp = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return self.body
+        return self.name
