@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'accounts',
     'tickets',
+    'cart',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.contexts.cart_content',
             ],
         },
     },
@@ -129,6 +132,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 

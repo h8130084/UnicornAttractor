@@ -20,7 +20,8 @@
    <!-- JQuery -->
    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        
+    
+    {% block head_js %}{% endblock %}
         
     <title>{% block page_title %}{% endblock %}</title>
 </head>
@@ -34,6 +35,7 @@
             <li><a href="{% url 'profile' %}">Profile</a></li>
             <li><a href="{% url 'bug' %}">Bugs and Features</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'view_cart' %}">Basket</a></li>
             
             {% else %}
             <li><a href="{% url 'index' %}">Home</a></li>

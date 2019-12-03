@@ -18,6 +18,8 @@ from django.views import static
 from accounts.views import index
 from accounts import urls as accounts_urls
 from tickets import urls as tickets_urls
+from checkout import urls as urls_checkout
+from cart import urls as urls_cart
 
 
 
@@ -25,5 +27,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name="index"),
     url(r'^accounts/', include(accounts_urls)),
-    url(r'^tickets/', include(tickets_urls))
+    url(r'^tickets/', include(tickets_urls)),
+    url(r'^cart/', include(urls_cart)),
+    url(r'^checkout/', include(urls_checkout)),
 ]
