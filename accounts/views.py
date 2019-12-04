@@ -49,10 +49,12 @@ def registration(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "Congratulations on registering with the Unicorn Attractor")
+                return redirect(reverse('index'))
             else:
                 messages.error(request, "Unable to register your account at this time")
     else:
         registration_form = UserRegistrationForm()
+        
     return render(request, 'registration.html', {
         "registration_form": registration_form})
 

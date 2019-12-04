@@ -1,6 +1,18 @@
- {% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %} 
+ {% extends 'base.html' %} 
  
+ {% load static from staticfiles %} {% load bootstrap_tags %} 
  
+{% block page_title %}Basket{% endblock %} 
+{% block page_heading %}Basket{% endblock %}
+{% block content %} 
+ 
+
+{% if bug_count == 0 %}
+
+<p>You have nothing in your basket</p>
+
+{% else %}
+
 {% for item in cart_items %}
 <div class="">
 
@@ -23,8 +35,13 @@
         </p>
     </div>
 </div>
-{% endfor %}
+
 <p>Total</p>
 <p>{{ total }}</p>
-<a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a> {% endblock %}
+<a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a> 
+
+{% endfor %}
+
+{% endif %}
+{% endblock %}
   

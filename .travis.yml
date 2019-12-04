@@ -1,6 +1,6 @@
 language: python
 python:
-    - "3.4"
+    - "3.6"
 install: "pip install -r requirements.txt"
 script:
-- SECRET_KEY= "XXX" ./manage.py test
+- SECRET_KEY= "&3j&qz@af)#!%d+@ji@1@a*#65ci)=%8pmt6m@%+-nyxzw@-56" ./manage.py test

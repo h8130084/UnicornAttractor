@@ -6,6 +6,10 @@ class AddBugForm(forms.ModelForm):
         model = Bug
         fields = ('name', 'description', 'bug_or_feature')
         
+class EditBugForm(forms.ModelForm):
+    class Meta:
+        model = Bug
+        fields = ('name', 'description', 'bug_or_feature')
 
 class CommentForm(forms.ModelForm):
     class Meta:

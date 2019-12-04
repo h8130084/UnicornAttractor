@@ -6,8 +6,9 @@
 {% block content %} 
 
 <p>{{ bug.time_stamp }}</p>
+<p>{{ bug.description }}</p>
 
-<p>{{ bug.pledge }}</p>
+{% if bug.bug_or_feature == 'feature' %}
 
 <form action="{% url 'add_to_cart' bug.id %}" method='POST'>
     {% csrf_token %}
@@ -15,6 +16,20 @@
     <input type="number" id="pledge" name="pledge"/>
     <button action="submit" class="btn btn-success">Add to Basket</button>
 </form>
+
+<p>Total Pledge: £{{ bug.pledge }}</p>
+
+{% elif bug.bug_or_feature == 'bug' %}
+
+<a class="btn btn-success" href="{% url 'upvote' bug.id %}">Upvote</a>
+
+<p>Upvotes: {{ bug.upvotes }}</p>
+
+{% endif %}
+
+{% if request.user == bug.userID %}
+<a class="btn btn-success" href="{% url 'edit_bug' bug.id %}">Edit Bug</a>
+{% endif %}
 
 <!--Comments section-->
 <form method='POST'>
