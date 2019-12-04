@@ -1,6 +1,9 @@
 language: python
-python:
-    - "3.4"
+matrix:
+    include:
+        - python: 3.6
+          dist: xenial
+          sudo: true
 install: "pip install -r requirements.txt"
 script:
 - SECRET_KEY="XXX" manage.py test
