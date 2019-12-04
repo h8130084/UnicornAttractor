@@ -6,4 +6,4 @@ matrix:
           sudo: true
 install: "pip install -r requirements.txt"
 script:
-- SECRET_KEY="XXX" manage.py test
+- SECRET_KEY="XXX" python3 manage.py test
