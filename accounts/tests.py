@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.urls import resolve, reverse
-from .views import logout, login, registration, user_profile
+from .views import logout, login, registration, index, user_profile
 
 # Create your tests here.
 class TestAccountsUrls(TestCase):
@@ -19,6 +19,10 @@ class TestAccountsUrls(TestCase):
         path = resolve(reverse('registration'))
         self.assertEqual(path.func, registration)
         
-    def test_user_profile_url(self):
-        path = resolve(reverse('user_profile'))
+    def test_index_url(self):
+        path = resolve(reverse('index'))
+        self.assertEqual(path.func, index)
+    
+    def test_profile_url(self):
+        path = resolve(reverse('profile'))
         self.assertEqual(path.func, user_profile)
