@@ -10,6 +10,7 @@
 <a href="{% url 'bugDetails' pk=bug.id %}">
     <div class=""> {{ bug.name }} </div>
     <p class="bug-description">{{ bug.description }}</p>
+    <p class="bug-description">{{ bug.status }}</p>
 </a>
 
 {% endfor %}
