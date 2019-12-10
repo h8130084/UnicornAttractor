@@ -5,7 +5,7 @@
 {% block content %}
 
 <form method='POST'>
-        {% csrf_token %}
+        {% csrf_token %} 
         <div>
             {{ add_bug_form.name.errors }}
             {{ add_bug_form.name.label_tag }}

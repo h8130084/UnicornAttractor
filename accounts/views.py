@@ -4,15 +4,18 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm
 
+# load index page
 def index(request):
     return render(request,  'index.html')
 
+# logout- must be logged in
 @login_required
 def logout(request):
     auth.logout(request)
     messages.success(request, "You successfully logged out")
     return redirect(reverse('index'))
 
+# log in functionality
 def login(request):
     """Return login page"""
     if request.user.is_authenticated:
@@ -34,6 +37,7 @@ def login(request):
         login_form = UserLoginForm()
     return render(request, 'login.html', {'login_form': login_form})
 
+# registration functionality
 def registration(request):
     if request.user.is_authenticated:
         return redirect(reverse('index'))
@@ -58,6 +62,7 @@ def registration(request):
     return render(request, 'registration.html', {
         "registration_form": registration_form})
 
+# profile page
 def user_profile(request):
     """The USERS profile page"""
     user = User.objects.get(email=request.user.email)

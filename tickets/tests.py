@@ -24,4 +24,3 @@ class TestAccountsUrls(TestCase):
     def test_edit_bug_url(self):
         path = resolve(reverse('edit_bug', args=[1]))
         self.assertEqual(path.func, edit_bug)
-        

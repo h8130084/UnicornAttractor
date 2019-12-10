@@ -1,4 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap');
+
+.message {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 form {
     width: 50%;
     position: relative;
+}
+
+.page_title {
+    margin-left: 30px;
+}
+
+h1, p {
+    font-family: 'Sulphur Point', sans-serif;  
+}
+.containter {
+    font-family: 'Sulphur Point', sans-serif;
+    position: relative;
+}
+
+html, body{ height:100%; margin:0; }
+
+footer{ 
+    height:210px;
+    margin-top: 10px;
+}
+
+body{ 
+  display:flex; 
+  flex-direction:column; 
+}
+
+footer{
+  margin-top:auto; 
+  color: red;
+}
+
+/*registration page*/
+
+.already_account{
+    margin-top: 25px;
+}
+
+.registration {
+    margin-top: 25px;
+}
+
+/*bugdetails*/
+.upvotes {
+    margin: 10px;
 }

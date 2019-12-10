@@ -7,14 +7,26 @@
 
 {% for bug in bugs %}
 
-<a href="{% url 'bugDetails' pk=bug.id %}">
-    <div class=""> {{ bug.name }} </div>
-    <p class="bug-description">{{ bug.description }}</p>
-    <p class="bug-description">{{ bug.status }}</p>
-</a>
+<!--bootstrap panels to allow better UX-->
+
+<div class="panel panel-default">
+    <div class="panel-heading"> {{ bug.name }} </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <p> Description:</p>
+                <a href="{% url 'bugDetails' pk=bug.id %}">
+                    <p class="bug-description">{{ bug.description }}</p>
+                </a>
+                <li class="list-group-item">
+                    <p> Stauts:</p>
+                    <p class="bug-description">{{ bug.status }}</p>
+        </ul>
+    </div>
+</div>
 
 {% endfor %}
-
-<a href="{% url 'addBug' %}"><button>Button</button></a> 
+<p>Thought of something else?</p>
+<a href="{% url 'addBug' %}"><button>Add a new Bug or feature!</button></a> 
 
 {% endblock %}
