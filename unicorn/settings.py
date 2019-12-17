@@ -86,6 +86,7 @@ WSGI_APPLICATION = 'unicorn.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+
 if os.environ.get("DEVELOPMENT") == "True":
     DATABASES = {
         'default': {
