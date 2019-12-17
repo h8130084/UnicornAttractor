@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect, reverse
 
-# Create your views here.
+
 def view_cart(request):
-    """A View that renders the cart contents page"""
+    """ generates the carts content page"""
     return render(request, "cart.html")
 
 
 def add_to_cart(request, id):
-    """Add a quantity of the specified product to the cart"""
+    """Add a feature alongside its pledge to the cart"""
     
     pledge = int(request.POST.get('pledge'))
     cart = request.session.get('cart', {})
@@ -22,10 +22,7 @@ def add_to_cart(request, id):
 
 
 def adjust_cart(request, id):
-    """
-    Adjust the quantity of the specified product to the specified
-    amount
-    """
+    """Adjust the pledge of the  feature"""
     pledge = int(request.POST.get('pledge'))
     cart = request.session.get('cart', {})
 

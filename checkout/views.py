@@ -8,10 +8,10 @@ from django.utils import timezone
 from tickets.models import Bug
 import stripe
 
-# Create your views here.
+
 stripe.api_key = settings.STRIPE_SECRET
 
-
+# need to be logged in and then allows users to checkout 
 @login_required()
 def checkout(request):
     if request.method == "POST":
