@@ -136,11 +136,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
-if os.environ.get("DEVELOPMENT") != "True":
+if os.environ.get("DEVELOPMENT") == "False":
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
