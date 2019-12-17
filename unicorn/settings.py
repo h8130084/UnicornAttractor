@@ -32,7 +32,7 @@ if os.environ.get("DEVELOPMENT") == "True":
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get('c9_HOSTNAME', '9595c15a881f4184bc2a1b75d4645cc5.vfs.cloud9.us-east-1.amazonaws.com'), 'https://tb-unicorn.herokuapp.com/']
+ALLOWED_HOSTS = [os.environ.get('c9_HOSTNAME', '9595c15a881f4184bc2a1b75d4645cc5.vfs.cloud9.us-east-1.amazonaws.com'), 'tb-unicorn.herokuapp.com']
 
 
 # Application definition
