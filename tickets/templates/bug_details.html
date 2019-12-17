@@ -23,7 +23,7 @@
 
 {% elif bug.bug_or_feature == 'bug' %}
 
-<div class="row">
+<div class="row upvotes">
 <p style="font-size:25px">Upvotes: {{ bug.upvotes }}</p>
 <a class="btn btn-primary" href="{% url 'upvote' bug.id %}">Upvote</a>
 </div>

@@ -3,10 +3,8 @@ from .models import Bug, Comment
 from .forms import AddBugForm, CommentForm, EditBugForm
 from django.contrib.auth.decorators import login_required
 
-# Create your views for tickets here.
+# add a bug or feature - have to be logged in
 
-
-    
 @login_required
 def addBug(request):
     

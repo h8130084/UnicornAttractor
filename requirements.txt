@@ -6,6 +6,7 @@ Django==1.11.24
 django-bootstrap-forms==0.1
 django-forms-bootstrap==3.1.0
 docutils==0.15.2
+gunicorn==20.0.4
 ikp3db==1.1.4
 isort==4.3.21
 jedi==0.11.1
@@ -32,4 +33,5 @@ urllib3==1.25.6
 virtualenv==16.2.0
 virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
+whitenoise==5.0.1
 wrapt==1.11.2

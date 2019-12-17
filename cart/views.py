@@ -8,13 +8,17 @@ def view_cart(request):
 
 def add_to_cart(request, id):
     """Add a quantity of the specified product to the cart"""
+    
     pledge = int(request.POST.get('pledge'))
-
     cart = request.session.get('cart', {})
-    cart[id] = cart.get(id, pledge)
+    
+    if id in cart:
+        cart[id] = cart[id] + pledge
+    else:
+        cart[id] = cart.get(id, pledge)
 
     request.session['cart'] = cart
-    return redirect(reverse('index'))
+    return redirect(reverse('bug'))
 
 
 def adjust_cart(request, id):

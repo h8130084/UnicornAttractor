@@ -26,7 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '&3j&qz@af)#!%d+@ji@1@a*#65ci)=%8pmt6m@%+-nyxzw@-56'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get("DEVELOPMENT") == "True":
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = [os.environ.get('c9_HOSTNAME', '9595c15a881f4184bc2a1b75d4645cc5.vfs.cloud9.us-east-1.amazonaws.com')]
 
