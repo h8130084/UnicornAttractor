@@ -5,53 +5,66 @@
 
 {% block content %} 
 
-<div class="row">
-<p>{{ bug.time_stamp }}</p>
-<p>{{ bug.description }}</p>
+{% if request.user == bug.userID %}
+<div class="center">
+    <a class="btn btn-warning" href="{% url 'edit_bug' bug.id %}">Edit</a>
+</div>
+{% endif %}
+
+
+<!--Description-->
+<div class="description-section">
+    <p class="description">{{ bug.description }}</p>
+    <p class="comment-time">{{ bug.time_stamp }}</p>
 </div>
 
+
+<!--Upvote/Pledge-->
 {% if bug.bug_or_feature == 'feature' %}
 
-<form action="{% url 'add_to_cart' bug.id %}" method='POST'>
-    {% csrf_token %}
-    
-    <input type="number" id="pledge" name="pledge"/>
-    <button action="submit" class="btn btn-success">Add to Basket</button>
-</form>
-
-<p style="font-size:25px">Total Pledge: £{{ bug.pledge }}</p>
+<div class="center">
+    <form action="{% url 'add_to_cart' bug.id %}" method='POST'>
+        {% csrf_token %}
+        
+        <input type="number" id="pledge" name="pledge"/>
+        <button action="submit" class="btn btn-success">Add to Basket</button>
+    </form>
+    <p style="font-size:25px">Total Pledge: £{{ bug.pledge }}</p>
+</div>
 
 {% elif bug.bug_or_feature == 'bug' %}
 
-<div class="row upvotes">
+<div class="center">
 <p style="font-size:25px">Upvotes: {{ bug.upvotes }}</p>
 <a class="btn btn-primary" href="{% url 'upvote' bug.id %}">Upvote</a>
 </div>
 {% endif %}
 
-{% if request.user == bug.userID %}
-<a class="btn btn-warning" href="{% url 'edit_bug' bug.id %}">Edit</a>
-{% endif %}
 
 <!--Comments section-->
-<form method='POST'>
-        {% csrf_token %}
-        <div>
-            {{ comment_form.body.errors }}
-            {{ comment_form.body.label_tag }}
-            {{ comment_form.body }}
-        </div>
-        <button type="submit" class="btn btn-success">Comment</button>
-</form>
 
+<h3 class="comments-header">Comments</h3>
 
 {% for comment in comments %}
 
-<div>
-{{ comment.body }}
-{{ comment.time_stamp }}
+<div class="comments-section">
+    <p class="comment-name">{{ comment.userID }}</p>
+    <p class="comment-time">{{ comment.time_stamp}}</p>
+    <p class="comment">{{ comment.body }}</p>
 </div>
 
 {% endfor %}
+
+<div class="form-box">
+    <form method='POST'>
+            {% csrf_token %}
+            <div>
+                {{ comment_form.body.errors }}
+                {{ comment_form.body.label_tag }}
+                {{ comment_form.body }}
+            </div>
+            <button type="submit" class="btn btn-success">Comment</button>
+    </form>
+</div>
 
 {% endblock %}

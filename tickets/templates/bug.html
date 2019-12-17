@@ -1,25 +1,18 @@
-{% extends 'base.html' %} 
-{% load bootstrap_tags %} 
-{% block page_title %}Bugs and Features Page{% endblock %} 
-{% block page_heading %}Bugs and Features{% endblock %} 
-
-{% block content %} 
-
-{% for bug in bugs %}
+{% extends 'base.html' %} {% load bootstrap_tags %} {% block page_title %}Bugs and Features Page{% endblock %} {% block page_heading %}Bugs and Features{% endblock %} {% block content %} {% for bug in bugs %}
 
 <!--bootstrap panels to allow better UX-->
 
 <div class="panel panel-default">
-    <div class="panel-heading"> {{ bug.name }} </div>
+    <a href="{% url 'bugDetails' pk=bug.id %}">
+        <div class="panel-heading"> {{ bug.name }} </div>
+    </a>
     <div class="panel-body">
         <ul class="list-group">
             <li class="list-group-item">
                 <p> Description:</p>
-                <a href="{% url 'bugDetails' pk=bug.id %}">
-                    <p class="bug-description">{{ bug.description }}</p>
-                </a>
+                <p class="bug-description">{{ bug.description }}</p>
                 <li class="list-group-item">
-                    <p> Stauts:</p>
+                    <p> Status: </p>
                     <p class="bug-description">{{ bug.status }}</p>
         </ul>
     </div>
@@ -27,6 +20,4 @@
 
 {% endfor %}
 <p>Thought of something else?</p>
-<a href="{% url 'addBug' %}"><button>Add a new Bug or Feature!</button></a> 
-
-{% endblock %}
+<a href="{% url 'addBug' %}"><button>Add a new Bug or Feature!</button></a> {% endblock %}

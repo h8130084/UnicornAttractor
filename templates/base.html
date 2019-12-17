@@ -16,11 +16,11 @@
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap" rel="stylesheet">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     {% block head_js %}{% endblock %}
 
@@ -29,8 +29,23 @@
 
 <body>
 
-    <nav class="navbar navbar-default">
-        <ul class="nav navbar-nav">
+<!--Taken from Bootstrap-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index' %}">U</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
             {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'profile' %}">Profile</a></li>
@@ -45,22 +60,25 @@
 
             {% endif %}
         </ul>
-    </nav>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+    {% if messages %}
+    <div class="row">
+        <div class="alert alert-warning">
+            {% for message in messages %} {{ message }} {% endfor %}
+        </div>
+    </div>
+    {% endif %}
 
     <h1 class="page_title">
         {% block page_heading %}{% endblock %}
     </h1>
-    <div class="container message">
-        <div class="row">
-            {% if messages %}
-            <div>
-                {% for message in messages %} {{ message }} {% endfor %}
-            </div>
-            {% endif %}
-        </div>
-    </div>
-<div class="container">
-    {% block content %}{% endblock %}
+    <div class="container">
+        {% block content %}{% endblock %}
     </div>
 </body>
 

@@ -1,47 +1,40 @@
  {% extends 'base.html' %} 
+ {% load static from staticfiles %} 
+ {% load bootstrap_tags %} 
+ {% block page_title %}Basket{% endblock %} 
+ {% block page_heading %}Basket{% endblock %} 
  
- {% load static from staticfiles %} {% load bootstrap_tags %} 
+ {% block content %} 
  
-{% block page_title %}Basket{% endblock %} 
-{% block page_heading %}Basket{% endblock %}
-{% block content %} 
- 
+ {% if bug_count == 0 %}
 
-{% if bug_count == 0 %}
+<p class="center">You have nothing in your basket</p>
 
-<p>You have nothing in your basket</p>
-
-{% else %}
-
+{% else %} 
 {% for item in cart_items %}
-<div class="">
 
-    <div class="">
-        <h3>{{ item.bug.name }}</h3>
-        <p>{{ item.bug.description }}</p>
-        <p>
-
-            <form class="" method="post" action="{% url 'adjust_cart' item.id %}">
-                {% csrf_token %}
-                <div class="">
-                    <div class="">
-                        <div class="">Adjust Pledge</div>
-                        <input name="pledge" type="number" min="0" max="999" class="form-control">
-                        <div class="">{{item.pledge}}</div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Amend</button>
-            </form>
-        </p>
+<div class="panel panel-default">
+    <div class="panel-heading"> {{ item.bug.name }} </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <p> Description:</p>
+                <p class="bug-description">{{ item.bug.description }}</p>
+            </li>
+        </ul>
+        <form class="center" method="post" action="{% url 'adjust_cart' item.id %}">
+            {% csrf_token %}
+            <span>£ </span><input name="pledge" type="number" min="0" max="999" class="adjust-input" value="{{ item.pledge }}">
+            <button type="submit" class="btn btn-primary">Adjust Pledge</button>
+        </form>
     </div>
 </div>
 
-<p>Total</p>
-<p>{{ total }}</p>
-<a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a> 
+
 
 {% endfor %}
 
-{% endif %}
-{% endblock %}
-  
+<p class="total">Total</p>
+<p class="total">£{{ total }}</p>
+<a href="{% url 'checkout' %}" class="btn btn-success" role="button">Checkout</a> {% endif %} {% endblock %}
+ 

@@ -4,24 +4,25 @@
 
 {% block content %}
 
-<form method='POST'>
-        {% csrf_token %}
-        <div>
-            {{ edit_bug_form.name.errors }}
-            {{ edit_bug_form.name.label_tag }}
-            {{ edit_bug_form.name }}
-        </div>
-        <div>
-            {{ edit_bug_form.description.errors }}
-            {{ edit_bug_form.description.label_tag }}
-            {{ edit_bug_form.description }}
-        </div>
-        <div>
-            {{ edit_bug_form.bug_or_feature.errors }}
-            {{ edit_bug_form.bug_or_feature.label_tag }}
-            {{ edit_bug_form.bug_or_feature }}
-        </div>
-        <button type="submit" class="btn btn-success">Confirm</button>
-</form>
-
+<div class="form-box">
+    <form method='POST'>
+            {% csrf_token %}
+            <div>
+                {{ edit_bug_form.name.errors }}
+                {{ edit_bug_form.name.label_tag }}
+                {{ edit_bug_form.name }}
+            </div>
+            <div>
+                {{ edit_bug_form.description.errors }}
+                {{ edit_bug_form.description.label_tag }}
+                {{ edit_bug_form.description }}
+            </div>
+            <div>
+                {{ edit_bug_form.bug_or_feature.errors }}
+                {{ edit_bug_form.bug_or_feature.label_tag }}
+                {{ edit_bug_form.bug_or_feature }}
+            </div>
+            <button type="submit" class="btn btn-success">Confirm</button>
+    </form>
+</div>
 {% endblock %}
