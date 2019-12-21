@@ -21,13 +21,14 @@ def addBug(request):
     
     return render(request, 'add_bug.html', {'add_bug_form': add_bug_form})
     
-    
+
+# generates bug page - have to be logged in
 @login_required
 def bug(request):
     bugs = Bug.objects.all()
     return render(request, "bug.html", {"bugs": bugs})
 
-
+# generates bug details page abd comments - have to be logged in
 @login_required
 def bugDetails(request, pk):
     
@@ -49,11 +50,13 @@ def bugDetails(request, pk):
         comment_form = CommentForm
     
     return render(request, 'bug_details.html', {'bug': bug, 'comment_form': comment_form, 'comments': comments})
-    
+
+
+
 @login_required
 def upvote(request, pk):
     
-    """ddfsdf"""
+    """shows upvotes - have to be logged in"""
     
     bug = get_object_or_404(Bug, pk=pk)
     bug.upvotes += 1
@@ -64,7 +67,7 @@ def upvote(request, pk):
 @login_required
 def edit_bug(request, pk):
     
-    """sfsdf"""
+    """shows edit bug button - have to be logged in"""
     
     bug = get_object_or_404(Bug, pk=pk)
     

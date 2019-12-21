@@ -12,7 +12,8 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap" rel="stylesheet">
 
@@ -31,9 +32,9 @@
 
 <!--Taken from Bootstrap-->
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container-fluid" style="background-color: #FFFAFA;">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <div class="navbar-header" style="background-color: #FFFAFA;">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -64,8 +65,6 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
-
     {% if messages %}
     <div class="row">
         <div class="alert alert-warning">
@@ -81,9 +80,32 @@
         {% block content %}{% endblock %}
     </div>
 
+<!-- Footer -->
+<footer class="page-footer fixed-bottom">
 
-<footer>
-    This is the footers space
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <h5> Unicorn Attractor</h5>
+                <p>A site designed to help the average person find mythicl creatures!</p>
+            </div>
+
+            <div class="col-md-3 mb-md-0 mb-3">
+                <!-- Links -->
+                <h5>Links</h5>
+                <ul class="list-unstyled">
+                    <li><a target="#" href=""><i class= "fa fa-facebook"></i></a></li>
+                    <li><a target="#" href=""><i class= "fa fa-twitter"></i></a></li>
+                    <li><a target="#" href=""><i class= "fa fa-globe"></i></a></li>
+                    <li><a target="#" href=""><i class= "fa fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Copyright - taken ideas from this-->
+        <div class="row" "footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
 </footer>
 
 </body>
